@@ -1,0 +1,45 @@
+﻿@page
+@model IndexModel
+@{
+	ViewData["Title"] = Model.Title;
+}
+
+<form method="get" class="search">
+    <span>Search (author or title):</span>
+	<input type="text" name="sa" value="@Request.Query["sa"]" />
+    <input type="text" name="st" value="@Request.Query["st"]" />
+	<input type="submit" value="Search" />
+</form>
+
+<ul id="chars">
+	@foreach (var character in "abcdefghijklmnopqrstuvwxyz")
+	{
+		<li><a href="/?c=@character">@character.ToString().ToUpper()</a></li>
+	}
+</ul>
+
+<h1>@Model.Title</h1>
+
+@if (Model.IsSearch)
+{
+	<h3><i>Found @Model.Authors.Count authors and @Model.Authors.Sum(e => e.Value.Count()) books</i></h3>
+}
+
+@foreach (var author in Model.Authors)
+{
+	<h2 class="author">@author.Key</h2>
+	<ul class="books">
+	@foreach (var book in author.Value)
+	{
+		<li>
+		 	<a href="/?id=@(book.id)&handler=DownloadFile">@book.title</a>
+			<a target="_blank" href="http://www.google.com/search?@($"q={book.author} {book.title} site:bol.com")">[..]</a>		
+		</li>
+	}
+	</ul>
+}
+
+@if (Model.IsSearch)
+{
+	<h3><i>Found @Model.Authors.Count authors and @Model.Authors.Sum(e => e.Value.Count()) books</i></h3>
+}

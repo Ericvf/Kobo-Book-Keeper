@@ -1,0 +1,71 @@
+﻿html {
+    font-family: Calibri, Tahoma, Verdana, Arial
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    font-style: normal;
+    color: black;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 80vw;
+    margin: auto;
+}
+
+.search {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 1em;
+    background: #efefef;
+    text-align: center;
+}
+
+#chars {
+    list-style-type: none;
+    text-align: center;
+}
+
+#chars li {
+    text-align: center;
+    background-color: #efefef;
+    display: inline-block;
+        
+}
+
+#chars li a {
+    text-decoration: none;
+    font-style: normal;
+    color:black;
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+}
+
+h2.author{
+    margin:0;
+    padding:0;
+    padding-left: 0.5em;
+    
+    background-color:#efefef;
+}
+
+ul.books {
+    list-style-type: none;
+    margin: 0.5em;
+    padding-left:1em;
+}

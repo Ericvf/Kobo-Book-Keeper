@@ -1,0 +1,26 @@
+﻿@inject IBookRepository bookRepository
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <header>
+        <a href="/"><img src="~/Books_.png" alt="Books" /></a>
+        <div>Because reading is fun... <i>Counting @bookRepository.NumberOfAuthors authors and @bookRepository.NumberOfTitles titles</i></div>
+    </header>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <footer>
+    </footer>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
